@@ -20,13 +20,13 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String email;
 
-    @Column(nullable = false)
+    @Column
     private String nickname;
 
-    @Column(nullable = false)
+    @Column
     private Boolean isFirstLogin = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
