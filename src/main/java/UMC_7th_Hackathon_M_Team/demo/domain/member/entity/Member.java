@@ -10,6 +10,8 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Getter
 @Builder
@@ -34,10 +36,14 @@ public class Member extends BaseEntity {
     private Team team;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<FoodPrefer> foodPreferList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<GameMember> gameMemberList = new ArrayList<>();
+
+    public void changeNickName(String nickname) {
+        this.nickname = nickname;
 
     public void updateIsFirstLogin(){
         this.isFirstLogin = true;
