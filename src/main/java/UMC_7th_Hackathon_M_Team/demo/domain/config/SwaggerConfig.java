@@ -1,4 +1,4 @@
-package UMC_7th_Hackathon_M_Team.demo.config;
+package UMC_7th_Hackathon_M_Team.demo.domain.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

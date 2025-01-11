@@ -1,8 +1,10 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.test.controller;
 
+import UMC_7th_Hackathon_M_Team.demo.domain.test.dto.request.TestRequest;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseResponse;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.CustomApiException;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.ErrorCode;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
