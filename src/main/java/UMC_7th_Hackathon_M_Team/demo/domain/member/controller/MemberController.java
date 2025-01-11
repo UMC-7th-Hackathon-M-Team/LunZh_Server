@@ -1,6 +1,5 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.member.controller;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.request.MemberUpdateRequest;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.response.LoginResponse;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.response.MemberResponse;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.service.MemberService;
@@ -11,6 +10,8 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Tag(name = "멤버 API", description = "멤버 관련 API")
 @RestController
@@ -30,8 +31,17 @@ public class MemberController {
 
     @Operation(summary = "멤버 정보 수정 API")
     @PostMapping
-    public BaseResponse<MemberResponse> updateMemberInfo(@RequestBody MemberUpdateRequest request){
-        return BaseResponse.onSuccess(memberService.updateMemberInfo(request));
+    @Parameters(value = {
+            @Parameter(name = "memberId", description = "수정할 멤버 id"),
+            @Parameter(name = "nickName", description = "입력할 닉네임"),
+            @Parameter(name = "preferFood", description = "선호 음식 목록"),
+    })
+    public BaseResponse<MemberResponse> updateMemberInfo(
+            @RequestParam(name = "memberId") Long memberId,
+            @RequestParam(name = "nickName") String nickName,
+            @RequestParam(name = "preferFood") List<String> preferFood
+            ){
+        return BaseResponse.onSuccess(memberService.updateMemberInfo(memberId, nickName, preferFood));
     }
 
 }

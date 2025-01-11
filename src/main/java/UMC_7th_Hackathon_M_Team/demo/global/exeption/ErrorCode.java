@@ -22,8 +22,10 @@ public enum ErrorCode {
     FOOD_PREFER_NOT_FOUND(HttpStatus.NOT_FOUND, "FOOD_PREFER401", "선호 음식을 찾을 수 없습니다."),
 
     //Team
-    TEAM_NOT_FOUND(HttpStatus.NOT_FOUND, "TEAM401", "그룹을 찾을 수 없습니다.")
-    ;
+    TEAM_NOT_FOUND(HttpStatus.NOT_FOUND, "TEAM401", "그룹을 찾을 수 없습니다."),
+
+    //Food
+    FOOD_NOT_FOUND(HttpStatus.NOT_FOUND, "FOOD401", "음식을 찾을 수 없습니다.");
     private final HttpStatus httpStatus;
     private final String code;
     private final String message;

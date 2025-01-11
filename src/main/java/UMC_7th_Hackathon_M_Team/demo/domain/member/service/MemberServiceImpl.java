@@ -1,6 +1,10 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.member.service;
 
+import UMC_7th_Hackathon_M_Team.demo.domain.food.entity.Food;
+import UMC_7th_Hackathon_M_Team.demo.domain.food.mapper.FoodPreferMapper;
+import UMC_7th_Hackathon_M_Team.demo.domain.food.repository.FoodRepository;
 import UMC_7th_Hackathon_M_Team.demo.domain.foodPrefer.entity.FoodPrefer;
+import UMC_7th_Hackathon_M_Team.demo.domain.foodPrefer.repository.FoodPreferRepository;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.request.MemberUpdateRequest;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.response.LoginResponse;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.response.MemberResponse;
@@ -22,6 +26,8 @@ public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
     private final MemberMapper memberMapper;
+    private final FoodPreferMapper foodPreferMapper;
+    private final FoodRepository foodRepository;
 
     @Override
     @Transactional
@@ -41,13 +47,23 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     @Transactional
-    public MemberResponse updateMemberInfo(MemberUpdateRequest request){
-        Member member = memberRepository.findById(request.getId()).orElseThrow(()->new CustomApiException(ErrorCode.USER_NOT_FOUND));
-        member.updateMemberInfo(request.getNickName(),request.getFoodPreferList());
+    public MemberResponse updateMemberInfo(Long memberId, String nickName, List<String> preferFood){
+        Member member = memberRepository.findById(memberId).orElseThrow(()->new CustomApiException(ErrorCode.USER_NOT_FOUND));
+
+        List<FoodPrefer> foodPreferList = preferFood.stream()
+                .map(foodName -> {
+                    Food food = foodRepository.findByName(foodName)
+                            .orElseThrow(() -> new CustomApiException(ErrorCode.FOOD_NOT_FOUND));
+
+                    return foodPreferMapper.toFoodPrefer(member, food);
+                })
+                .toList();
+
+        member.updateMemberInfo(nickName, foodPreferList);
         member.updateIsFirstLogin();
         memberRepository.save(member);
 
-        FoodPrefer randomFoodPrefer = getRandomFoodPrefer(request.getFoodPreferList());
+        FoodPrefer randomFoodPrefer = getRandomFoodPrefer(foodPreferList);
 
         return memberMapper.MemberResponse(member,randomFoodPrefer);
     }
