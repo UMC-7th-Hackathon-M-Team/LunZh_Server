@@ -44,6 +44,7 @@ public class Member extends BaseEntity {
 
     public void changeNickName(String nickname) {
         this.nickname = nickname;
+    }
 
     public void updateIsFirstLogin(){
         this.isFirstLogin = true;
