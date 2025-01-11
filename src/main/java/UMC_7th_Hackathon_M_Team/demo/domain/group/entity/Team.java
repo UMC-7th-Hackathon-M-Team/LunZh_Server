@@ -38,7 +38,7 @@ public class Team extends BaseEntity {
 	private String name;
 
 	@Column(nullable = false)
-	private String groupCode;
+	private String teamCode;
 
 	@Enumerated(value = EnumType.STRING)
 	@Column

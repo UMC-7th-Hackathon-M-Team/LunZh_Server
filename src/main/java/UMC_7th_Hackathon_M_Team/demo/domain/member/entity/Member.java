@@ -26,6 +26,9 @@ public class Member extends BaseEntity {
     @Column(nullable = false)
     private String nickname;
 
+    @Column(nullable = false)
+    private Boolean isFirstLogin = false;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
@@ -36,4 +39,11 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<GameMember> gameMemberList = new ArrayList<>();
 
+    public void updateIsFirstLogin(){
+        this.isFirstLogin = true;
+    }
+
+    public void updateTeam(Team team){
+        this.team = team;
+    }
 }

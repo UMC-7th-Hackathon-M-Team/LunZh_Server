@@ -17,6 +17,9 @@ public enum ErrorCode {
 
     //Member
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "MEMBER401", "사용자를 찾을 수 없습니다."),
+    USER_IS_NOT_IN_TEAM(HttpStatus.NOT_FOUND, "MEMBER402", "유저가 속한 팀이 없습니다."),
+    //FoodPrefer
+    FOOD_PREFER_NOT_FOUND(HttpStatus.NOT_FOUND, "MEMBER401", "사용자를 찾을 수 없습니다."),
     ;
     private final HttpStatus httpStatus;
     private final String code;
