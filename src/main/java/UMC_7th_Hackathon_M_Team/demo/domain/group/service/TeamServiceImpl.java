@@ -24,13 +24,11 @@ public class TeamServiceImpl implements  TeamService{
 
     @Override
     @Transactional
-    public TeamResponse CreateTeam(String email){
+    public TeamResponse CreateTeam(String email,String name){
         String teamCode = generateRandomString();
 
-        Team newTeam = teamMapper.toTeam(email, teamCode);
+        Team newTeam = teamMapper.toTeam(name, teamCode);
         teamRepository.save(newTeam);
-
-
 
         Member member = memberRepository.findByEmail(email).orElseThrow(()-> new CustomApiException(ErrorCode.USER_NOT_FOUND));
         member.updateTeam(newTeam);
@@ -60,10 +58,12 @@ public class TeamServiceImpl implements  TeamService{
             throw new CustomApiException(ErrorCode.USER_IS_NOT_IN_TEAM);
         }
 
+        Team currentTeam = member.getTeam();
+
         member.updateTeam(null);
         memberRepository.save(member);
 
-        return teamMapper.toTeamResponse(member.getTeam());
+        return teamMapper.toTeamResponse(currentTeam);
     }
 
     @Override

@@ -25,11 +25,13 @@ public class TeamController {
     @PostMapping
     @Parameters(value = {
             @Parameter(name = "email", description = "그룹 생성하는 멤버 이메일"),
+            @Parameter(name = "name", description = "생성할 그룹 이름")
     })
     public BaseResponse<TeamResponse> CreateTeam(
-            @RequestParam(name = "email") String email
+            @RequestParam(name = "email") String email,
+            @RequestParam(name = "name") String name
     ){
-        return BaseResponse.onSuccess(teamService.CreateTeam(email));
+        return BaseResponse.onSuccess(teamService.CreateTeam(email,name));
     }
 
     @Operation(summary = "그룹 탈퇴 API")
