@@ -31,6 +31,9 @@ public class Member extends BaseEntity {
     @Column
     private Boolean isFirstLogin = false;
 
+    @Column
+    private Boolean hasGroup = false; //
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
@@ -48,6 +51,10 @@ public class Member extends BaseEntity {
 
     public void updateIsFirstLogin(){
         this.isFirstLogin = true;
+    }
+
+    public Boolean hasGroup() {
+        return this.team != null;
     }
 
     public void updateMemberInfo(String nickname, List<FoodPrefer> foodPreferList){

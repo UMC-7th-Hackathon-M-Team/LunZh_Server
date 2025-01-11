@@ -34,5 +34,13 @@ public class MemberConverter {
 			.build();
 	}
 
+	public static MemberResponseDTO.HomeResponseDTO toHomeResponseDTO(Boolean hasGroup, Member member, String groupName) {
+		return MemberResponseDTO.HomeResponseDTO.builder()
+			.memberName(member.getNickname())
+			.hasGroup(hasGroup)
+			.groupName(groupName)
+			.build();
+	}
+
 
 }

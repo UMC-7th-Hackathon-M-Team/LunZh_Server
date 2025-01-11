@@ -115,16 +115,38 @@ public class MemberServiceImpl implements MemberService {
         List<FoodPrefer> newPreferList = foodList.stream()
             .map(foodName -> {
                 Food food = foodRepository.findFoodByName(foodName);
-                return FoodPrefer.builder()
-                    .food(food)
-                    .member(member)
-                    .build();
+                return foodPreferMapper.toFoodPrefer(member, food);
             })
             .collect(Collectors.toList());
 
 
         foodPreferRepository.saveAll(newPreferList);
         return newPreferList;
+    }
+
+    @Override
+    @Transactional
+    public Member memberName(Long id){
+		return memberRepository.findById(id).orElseThrow(()->new CustomApiException(ErrorCode.USER_NOT_FOUND));
+    }
+
+    @Override
+    @Transactional
+    public Boolean isMemberinGroup(Long memberId){
+        Member member = memberRepository.findById(memberId).orElseThrow(()->new CustomApiException(ErrorCode.USER_NOT_FOUND));
+        return member.hasGroup();
+    }
+
+    @Override
+    @Transactional
+    public String getGroupName(Long memberId){
+        Member member = memberRepository.findById(memberId).orElseThrow(()->new CustomApiException(ErrorCode.USER_NOT_FOUND));
+
+        if (member.hasGroup()){
+            return member.getTeam().getName();
+        }else {
+            return "No Group";
+        }
     }
 
 
