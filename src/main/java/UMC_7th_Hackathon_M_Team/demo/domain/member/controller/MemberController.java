@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-@Tag(name = "이벤트 API", description = "이벤트 관련 API")
+@Tag(name = "멤버 API", description = "멤버 관련 API")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/members")
@@ -19,7 +19,7 @@ public class MemberController {
 
     @Operation(summary = "로그인 API")
     @PostMapping("/login")
-    public BaseResponse<LoginResponse> login(@RequestParam(name = "email") String Email){
+    public BaseResponse<LoginResponse> login(@RequestParam(name = "로그인 할 멤버 이메일") String Email){
         return BaseResponse.onSuccess(memberService.login(Email));
     }
 

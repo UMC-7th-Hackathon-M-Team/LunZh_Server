@@ -24,7 +24,7 @@ public class TeamServiceImpl implements  TeamService{
 
     @Override
     @Transactional
-    public TeamResponse CreateTeam(String email, Long memberId){
+    public TeamResponse CreateTeam(String email){
         String teamCode = generateRandomString();
 
         Team newTeam = teamMapper.toTeam(email, teamCode);
@@ -32,7 +32,7 @@ public class TeamServiceImpl implements  TeamService{
 
 
 
-        Member member = memberRepository.findById(memberId).orElseThrow(()-> new CustomApiException(ErrorCode.USER_NOT_FOUND));
+        Member member = memberRepository.findByEmail(email).orElseThrow(()-> new CustomApiException(ErrorCode.USER_NOT_FOUND));
         member.updateTeam(newTeam);
         memberRepository.save(member);
 
