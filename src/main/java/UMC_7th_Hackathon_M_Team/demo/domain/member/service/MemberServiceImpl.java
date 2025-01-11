@@ -25,8 +25,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Nodes.collect;
-
 @Service
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
