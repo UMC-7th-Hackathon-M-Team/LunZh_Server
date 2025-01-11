@@ -13,6 +13,7 @@ public class MemberMapper {
     public Member toMember(String email){
         return Member.builder()
                 .email(email)
+                .isFirstLogin(false)
                 .build();
     }
 
