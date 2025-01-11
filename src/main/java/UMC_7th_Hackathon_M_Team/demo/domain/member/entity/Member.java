@@ -2,7 +2,7 @@ package UMC_7th_Hackathon_M_Team.demo.domain.member.entity;
 
 import UMC_7th_Hackathon_M_Team.demo.domain.foodPrefer.entity.FoodPrefer;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.Team;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.Team;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,11 +22,14 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String email;
 
-    @Column(nullable = false)
+    @Column
     private String nickname;
+
+    @Column
+    private Boolean isFirstLogin = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
@@ -39,9 +42,19 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<GameMember> gameMemberList = new ArrayList<>();
 
-
-    //닉네임 업데이트
     public void changeNickName(String nickname) {
         this.nickname = nickname;
+
+    public void updateIsFirstLogin(){
+        this.isFirstLogin = true;
+    }
+
+    public void updateMemberInfo(String nickname, List<FoodPrefer> foodPreferList){
+        this.nickname = nickname;
+        this.foodPreferList = foodPreferList;
+    }
+
+    public void updateTeam(Team team){
+        this.team = team;
     }
 }
