@@ -67,6 +67,8 @@ public class MemberServiceImpl implements MemberService {
                 })
                 .toList();
 
+        foodPreferRepository.saveAll(foodPreferList);
+
         member.updateMemberInfo(nickName, foodPreferList);
         member.updateIsFirstLogin();
         memberRepository.save(member);
