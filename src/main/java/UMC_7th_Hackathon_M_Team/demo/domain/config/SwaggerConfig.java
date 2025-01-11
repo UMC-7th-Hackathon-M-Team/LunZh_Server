@@ -17,8 +17,8 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("Swagger for ConnectCo")
-                .description("Springdoc을 사용한 Swagger UI for ConnectCo")
+                .title("Swagger for Lunzh")
+                .description("Springdoc을 사용한 Swagger UI for Lunzh")
                 .version("1.0.0");
     }
 }
