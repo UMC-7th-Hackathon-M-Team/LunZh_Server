@@ -43,6 +43,11 @@ public class Member extends BaseEntity {
         this.isFirstLogin = true;
     }
 
+    public void updateMemberInfo(String nickname, List<FoodPrefer> foodPreferList){
+        this.nickname = nickname;
+        this.foodPreferList = foodPreferList;
+    }
+
     public void updateTeam(Team team){
         this.team = team;
     }
