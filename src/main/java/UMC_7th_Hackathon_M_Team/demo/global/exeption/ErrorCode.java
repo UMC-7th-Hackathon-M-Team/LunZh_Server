@@ -26,7 +26,10 @@ public enum ErrorCode {
     TEAM_NOT_FOUND(HttpStatus.NOT_FOUND, "TEAM401", "그룹을 찾을 수 없습니다."),
 
     //Food
-    FOOD_NOT_FOUND(HttpStatus.NOT_FOUND, "FOOD401", "음식을 찾을 수 없습니다.");
+    FOOD_NOT_FOUND(HttpStatus.NOT_FOUND, "FOOD401", "음식을 찾을 수 없습니다."),
+
+    //Email
+    INVALID_EMAIL(HttpStatus.BAD_REQUEST, "EMAIL401", "유효하지 않은 이메일 입니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
