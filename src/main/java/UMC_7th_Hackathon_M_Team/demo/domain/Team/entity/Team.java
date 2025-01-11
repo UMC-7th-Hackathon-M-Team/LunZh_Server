@@ -1,11 +1,11 @@
-package UMC_7th_Hackathon_M_Team.demo.domain.group.entity;
+package UMC_7th_Hackathon_M_Team.demo.domain.Team.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import UMC_7th_Hackathon_M_Team.demo.domain.calendar.entity.Calendar;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.enums.Game;
+import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.enums.Game;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.entity.Member;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseEntity;
 import jakarta.persistence.CascadeType;
