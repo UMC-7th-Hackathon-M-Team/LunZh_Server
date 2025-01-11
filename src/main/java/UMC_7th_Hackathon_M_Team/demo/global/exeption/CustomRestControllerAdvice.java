@@ -5,21 +5,23 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.Optional;
-
-
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@Slf4j
+@RestControllerAdvice(annotations = {RestController.class})
 public class CustomRestControllerAdvice extends ResponseEntityExceptionHandler {
+
     /*
      * 직접 정의한 에러에 대한 예외 처리
      */
@@ -79,5 +81,4 @@ public class CustomRestControllerAdvice extends ResponseEntityExceptionHandler {
                 .status(errorCode.getHttpStatus())
                 .body(BaseResponse.onFailure(errorCode.getCode(), errorCode.getMessage(), null));
     }
-
 }
