@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import UMC_7th_Hackathon_M_Team.demo.domain.calendar.entity.Calendar;
+import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
 import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.enums.Game;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.entity.Member;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseEntity;
@@ -48,4 +49,7 @@ public class Team extends BaseEntity {
 
 	@OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
 	private Calendar calendar;
+
+	@OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+	private List<GameMember> gameMembers = new ArrayList<>();
 }
