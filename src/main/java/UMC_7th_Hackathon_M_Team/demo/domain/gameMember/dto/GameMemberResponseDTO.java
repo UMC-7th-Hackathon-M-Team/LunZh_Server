@@ -14,8 +14,6 @@ public class GameMemberResponseDTO {
     public static class participateResponseDto{
         Game game;
     }
-
-
     @Builder
     @Getter
     @NoArgsConstructor

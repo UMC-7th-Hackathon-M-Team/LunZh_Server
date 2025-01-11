@@ -54,6 +54,10 @@ public class GameMemberQueryServiceImpl implements GameMemberQueryService{
         // team Complete 변환
         team.setGame(Game.Complete);
         teamRepository.save(team);
+
+        // 게임 멤버 제거
+        List<GameMember> removeList = gameMemberRepository.findByTeamId(teamId);
+        gameMemberRepository.deleteAll(removeList);
         return gameMemberList;
     }
 
