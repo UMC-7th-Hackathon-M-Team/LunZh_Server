@@ -29,11 +29,20 @@ public class TeamController {
     }
 
     @Operation(summary = "그룹 탈퇴 API")
-    @PostMapping("/{memberId}")
-    public BaseResponse<TeamResponse> CreateTeam(
-            @Parameter(description = "수정할 이벤트 id") @PathVariable Long memberId
+    @PostMapping("/exit")
+    public BaseResponse<TeamResponse> exitTeam(
+            @Parameter(description = "탈퇴할 멤버 id") @PathVariable Long memberId
     ){
         return BaseResponse.onSuccess(teamService.exitTeam(memberId));
+    }
+
+    @Operation(summary = "그룹 참여 API")
+    @PostMapping("/participant")
+    public BaseResponse<TeamResponse> joinTeam(
+            @Parameter(description = "참여할 멤버 id") Long memberId,
+            @Parameter(description = "참여할 그룹 코드") String teamCode
+    ){
+        return BaseResponse.onSuccess(teamService.joinTeam(memberId, teamCode));
     }
 
 }

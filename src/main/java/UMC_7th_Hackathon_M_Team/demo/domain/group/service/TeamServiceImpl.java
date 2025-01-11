@@ -65,4 +65,17 @@ public class TeamServiceImpl implements  TeamService{
 
         return teamMapper.toTeamResponse(member.getTeam());
     }
+
+    @Override
+    @Transactional
+    public TeamResponse joinTeam(Long memberId, String teamCode){
+        Member member = memberRepository.findById(memberId).orElseThrow(()-> new CustomApiException(ErrorCode.USER_NOT_FOUND));
+
+        Team team = teamRepository.findByTeamCode(teamCode).orElseThrow(()->new CustomApiException(ErrorCode.TEAM_NOT_FOUND));
+
+        member.updateTeam(team);
+        memberRepository.save(member);
+
+        return teamMapper.toTeamResponse(team);
+    }
 }
