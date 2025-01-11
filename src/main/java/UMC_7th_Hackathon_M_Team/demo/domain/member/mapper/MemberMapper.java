@@ -10,11 +10,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class MemberMapper {
 
-    public Member toMember(MemberUpdateRequest request){
+    public Member toMember(String email){
         return Member.builder()
-                .email(request.getEmail())
-                .foodPreferList(request.getFoodPreferList())
-                .nickname(request.getNickName())
+                .email(email)
                 .build();
     }
 

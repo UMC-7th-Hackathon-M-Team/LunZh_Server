@@ -28,13 +28,22 @@ public class MemberServiceImpl implements MemberService {
     public LoginResponse login(String email){
         Member member = memberRepository.findMemberByEmail(email);
 
+        if (member == null) {
+            member = createMember(email);
+        }
         return memberMapper.toLoginResponse(member);
+    }
+
+    public Member createMember(String email){
+        Member newMember = memberMapper.toMember(email);
+        return memberRepository.save(newMember);
     }
 
     @Override
     @Transactional
     public MemberResponse updateMemberInfo(MemberUpdateRequest request){
-        Member member = memberMapper.toMember(request);
+        Member member = memberRepository.findById(request.getId()).orElseThrow(()->new CustomApiException(ErrorCode.USER_NOT_FOUND));
+        member.updateMemberInfo(request.getNickName(),request.getFoodPreferList());
         member.updateIsFirstLogin();
         memberRepository.save(member);
 

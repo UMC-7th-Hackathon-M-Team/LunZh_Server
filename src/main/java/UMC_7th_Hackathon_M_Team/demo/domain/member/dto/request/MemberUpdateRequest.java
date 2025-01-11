@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MemberUpdateRequest {
+    private Long id;
     private String email;
     private List<FoodPrefer> foodPreferList;
     private String nickName;
