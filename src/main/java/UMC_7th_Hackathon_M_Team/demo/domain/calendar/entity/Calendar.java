@@ -4,13 +4,7 @@ import java.time.LocalDate;
 
 import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.Team;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,7 +27,7 @@ public class Calendar extends BaseEntity {
 	@Column
 	private String food;
 
-	@OneToOne
-	@JoinColumn(name = "team_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "teamId")
 	private Team team;
 }

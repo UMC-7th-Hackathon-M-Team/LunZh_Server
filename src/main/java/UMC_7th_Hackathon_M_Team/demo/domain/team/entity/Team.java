@@ -47,8 +47,8 @@ public class Team extends BaseEntity {
 	@OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
 	private List<Member> members = new ArrayList<>();
 
-	@OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
-	private Calendar calendar;
+/*	@OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
+	private Calendar calendar;*/
 
 	@OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
 	private List<GameMember> gameMembers = new ArrayList<>();
@@ -56,4 +56,6 @@ public class Team extends BaseEntity {
 	public void setGame(Game game) {
 		this.game = game;
 	}
+
+
 }
