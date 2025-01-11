@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Nodes.collect;
+
 @Service
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
@@ -65,7 +67,7 @@ public class MemberServiceImpl implements MemberService {
 
                     return foodPreferMapper.toFoodPrefer(member, food);
                 })
-                .toList();
+                .collect(Collectors.toList());
 
         foodPreferRepository.saveAll(foodPreferList);
 
