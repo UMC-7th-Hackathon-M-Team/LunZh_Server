@@ -52,4 +52,8 @@ public class Team extends BaseEntity {
 
 	@OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
 	private List<GameMember> gameMembers = new ArrayList<>();
+
+	public void setGame(Game game) {
+		this.game = game;
+	}
 }

@@ -1,5 +1,6 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.gameMember.service;
 
+import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.Team;
 import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.enums.Game;
 import UMC_7th_Hackathon_M_Team.demo.domain.Team.repository.TeamRepository;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto.GameMemberRequestDTO;
@@ -27,6 +28,7 @@ public class GameMemberQueryServiceImpl implements GameMemberQueryService{
     private final GameMemberRepository gameMemberRepository;
     private final TeamRepository teamRepository;
     @Override
+    @Transactional
     public List<GameMember> getGameMemberList(Long teamId) {
 
         List<GameMember> gameMemberList = gameMemberRepository.findByTeamId(teamId);
@@ -37,13 +39,10 @@ public class GameMemberQueryServiceImpl implements GameMemberQueryService{
         } else if (gameType == Game.B || gameType == Game.C) {
             gameMemberList.sort(Comparator.comparingInt(GameMember::getResult));
         }
-
+        Team team = teamRepository.findById(teamId).orElseThrow(() -> new CustomApiException(ErrorCode.TEAM_NOT_FOUND));
+        team.setGame(Game.Complete);
+        teamRepository.save(team);
         return gameMemberList;
     }
 
-    private Page<GameMember> toPage(List<GameMember> gameMemberList, Pageable pageable) {
-        int start = (int) pageable.getOffset();
-        int end = Math.min(start + pageable.getPageSize(), gameMemberList.size());
-        return new PageImpl<>(gameMemberList.subList(start, end), pageable, gameMemberList.size());
-    }
 }
