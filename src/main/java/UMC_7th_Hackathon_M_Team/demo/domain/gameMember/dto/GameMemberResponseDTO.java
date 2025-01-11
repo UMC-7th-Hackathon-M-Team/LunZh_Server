@@ -1,7 +1,10 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto;
 
 import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.enums.Game;
+import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
 import lombok.*;
+
+import java.util.List;
 
 public class GameMemberResponseDTO {
 
@@ -13,10 +16,15 @@ public class GameMemberResponseDTO {
         Game game;
     }
 
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class MemberResultResponseDTO{
-        private Long memberId;
-        private String memberFood;
-        private int result;
+        Long memberId;
+        String memberFood;
+        Integer result;
     }
 
 
@@ -25,6 +33,17 @@ public class GameMemberResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class RankResponseDTO {
+        String winningFood;
+        List<MemberDetailDTO> gameMemberList;
+    }
 
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public  static class MemberDetailDTO{
+        String memberName;
+        Integer result;
+        String memberFood;
     }
 }

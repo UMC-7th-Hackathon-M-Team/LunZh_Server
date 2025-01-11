@@ -12,4 +12,8 @@ public class GameMemberRequestDTO {
         String memberFood;
         Integer result;
     }
+    @Getter
+    public static class RankRequestDTO{
+        Game game;
+    }
 }
