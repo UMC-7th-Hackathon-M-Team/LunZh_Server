@@ -1,8 +1,7 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.enums.Game;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.enums.Game;
 import lombok.Getter;
-import lombok.Setter;
 
 public class GameMemberRequestDTO {
 

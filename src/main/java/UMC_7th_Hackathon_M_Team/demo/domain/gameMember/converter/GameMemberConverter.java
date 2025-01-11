@@ -1,12 +1,11 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.gameMember.converter;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.Team;
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.enums.Game;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.Team;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.enums.Game;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto.GameMemberRequestDTO;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto.GameMemberResponseDTO;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.entity.Member;
-import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -6,13 +6,12 @@ import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto.GameMemberRequestDTO;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto.GameMemberResponseDTO;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.service.GameMemberCommandService;
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.enums.Game;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.enums.Game;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.service.GameMemberQueryService;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

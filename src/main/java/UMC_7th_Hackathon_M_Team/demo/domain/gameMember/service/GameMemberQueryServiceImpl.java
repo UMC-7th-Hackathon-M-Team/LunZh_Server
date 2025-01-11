@@ -1,22 +1,16 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.gameMember.service;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.Team;
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.enums.Game;
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.repository.TeamRepository;
-import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto.GameMemberRequestDTO;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.Team;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.enums.Game;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.repository.GameMemberRepository;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.repository.TeamRepository;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.CustomApiException;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.ErrorCode;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;

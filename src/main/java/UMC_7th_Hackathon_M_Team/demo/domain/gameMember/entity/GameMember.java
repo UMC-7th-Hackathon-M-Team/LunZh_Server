@@ -1,6 +1,6 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.Team;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.Team;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.entity.Member;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseEntity;
 import jakarta.persistence.Column;

@@ -1,7 +1,6 @@
 package UMC_7th_Hackathon_M_Team.demo.domain.gameMember.dto;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.Team.entity.enums.Game;
-import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.enums.Game;
 import lombok.*;
 
 import java.util.List;
