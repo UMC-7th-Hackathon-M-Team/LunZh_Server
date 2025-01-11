@@ -41,4 +41,15 @@ public class MemberResponseDTO {
 		private Long memberId;
 		private List<String> foodList;
 	}
+
+	@Getter
+	@Builder
+	@AllArgsConstructor
+	@NoArgsConstructor
+	public static class HomeResponseDTO{
+
+		private String memberName;
+		private Boolean hasGroup;
+		private String groupName;
+	}
 }
