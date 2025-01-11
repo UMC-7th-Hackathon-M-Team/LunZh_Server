@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/test")
 public class TestController {
 
+    @Operation(summary = "예시 테스트 API", description = "예시 테스트 API")
     @GetMapping("/example")
     public BaseResponse<String> example() {
         return BaseResponse.onSuccess( "예시 API");
