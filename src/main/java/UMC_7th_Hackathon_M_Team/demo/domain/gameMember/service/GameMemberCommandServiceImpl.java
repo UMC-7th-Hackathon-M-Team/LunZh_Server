@@ -29,10 +29,13 @@ public class GameMemberCommandServiceImpl implements GameMemberCommandService{
     @Override
     @Transactional
     public Game participate(Long teamId, Long memberId) {
+
         Team team = teamRepository.findById(teamId)
                 .orElseThrow(() -> new CustomApiException(ErrorCode.TEAM_NOT_FOUND));
         if (team.getGame() == null || team.getGame() == Game.Complete) {
             Game randomGame = getRandomGame();
+            team.setGame(randomGame);
+
             teamRepository.save(team);
             return randomGame;
         } else {
@@ -47,6 +50,7 @@ public class GameMemberCommandServiceImpl implements GameMemberCommandService{
                 .orElseThrow(() -> new CustomApiException(ErrorCode.TEAM_NOT_FOUND));
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new CustomApiException(ErrorCode.USER_NOT_FOUND));
+
         GameMember gameMember = GameMemberConverter.toGameMember(request, team, member);
 
         return gameMemberRepository.save(gameMember);
@@ -58,13 +62,4 @@ public class GameMemberCommandServiceImpl implements GameMemberCommandService{
         return games.get(random.nextInt(games.size()));
     }
 
-    // 게임 로직 처리
-    private void GameLogic(Game game, Integer time) {
-        // Game.A => 랜덤은 최종으로 반환
-        if (game == Game.B) { // 페이커
-
-        } else if (game == Game.C) { // 시간 맞추기
-
-        }
-    }
 }
