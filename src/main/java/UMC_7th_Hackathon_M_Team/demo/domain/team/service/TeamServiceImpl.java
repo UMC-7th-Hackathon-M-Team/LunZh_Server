@@ -8,6 +8,7 @@ import UMC_7th_Hackathon_M_Team.demo.domain.member.entity.Member;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.repository.MemberRepository;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.CustomApiException;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.ErrorCode;
+import UMC_7th_Hackathon_M_Team.demo.global.validation.annotation.ParamValidator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,8 @@ public class TeamServiceImpl implements  TeamService{
     @Override
     @Transactional
     public TeamResponse CreateTeam(String email,String name){
+        ParamValidator.validationEmail(email);
+
         String teamCode = generateRandomString();
 
         Team newTeam = teamMapper.toTeam(name, teamCode);

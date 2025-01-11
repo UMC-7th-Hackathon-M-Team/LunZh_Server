@@ -16,6 +16,7 @@ import UMC_7th_Hackathon_M_Team.demo.domain.member.mapper.MemberMapper;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.repository.MemberRepository;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.CustomApiException;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.ErrorCode;
+import UMC_7th_Hackathon_M_Team.demo.global.validation.annotation.ParamValidator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,8 @@ public class MemberServiceImpl implements MemberService {
     @Override
     @Transactional
     public LoginResponse login(String email){
+        ParamValidator.validationEmail(email);
+
         Member member = memberRepository.findMemberByEmail(email);
 
         if (member == null) {
