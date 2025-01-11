@@ -53,7 +53,16 @@ public class TeamServiceImpl implements  TeamService{
 
     @Override
     @Transactional
-    public TeamResponse exitTeam(Long TeamId, Long memberId){
-        return null;
+    public TeamResponse exitTeam(Long memberId){
+        Member member = memberRepository.findById(memberId).orElseThrow(()-> new CustomApiException(ErrorCode.USER_NOT_FOUND));
+
+        if(member.getTeam() == null){
+            throw new CustomApiException(ErrorCode.USER_IS_NOT_IN_TEAM);
+        }
+
+        member.updateTeam(null);
+        memberRepository.save(member);
+
+        return teamMapper.toTeamResponse(member.getTeam());
     }
 }
