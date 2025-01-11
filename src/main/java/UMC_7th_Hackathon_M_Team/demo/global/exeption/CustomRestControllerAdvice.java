@@ -1,12 +1,9 @@
 package UMC_7th_Hackathon_M_Team.demo.global.exeption;
 
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseResponse;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.Optional;
 @Slf4j
-@RestControllerAdvice
+@RestControllerAdvice(annotations = {RestController.class})
 public class CustomRestControllerAdvice extends ResponseEntityExceptionHandler {
 
     /*
