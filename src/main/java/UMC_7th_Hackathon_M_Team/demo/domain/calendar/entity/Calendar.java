@@ -2,7 +2,7 @@ package UMC_7th_Hackathon_M_Team.demo.domain.calendar.entity;
 
 import java.time.LocalDate;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.Group;
+import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.Team;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,6 +34,6 @@ public class Calendar extends BaseEntity {
 	private String food;
 
 	@OneToOne
-	@JoinColumn(name = "group_id")
-	private Group group;
+	@JoinColumn(name = "team_id")
+	private Team team;
 }

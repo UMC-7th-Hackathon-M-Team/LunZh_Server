@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Group extends BaseEntity {
+public class Team extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,9 +43,9 @@ public class Group extends BaseEntity {
 	@Column
 	private Game game;
 
-	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
 	private List<Member> members = new ArrayList<>();
 
-	@OneToOne(mappedBy = "group", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
 	private Calendar calendar;
 }
