@@ -2,7 +2,7 @@ package UMC_7th_Hackathon_M_Team.demo.domain.member.entity;
 
 import UMC_7th_Hackathon_M_Team.demo.domain.foodPrefer.entity.FoodPrefer;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.Team;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.Team;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;

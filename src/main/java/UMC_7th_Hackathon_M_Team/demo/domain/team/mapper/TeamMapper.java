@@ -1,7 +1,7 @@
-package UMC_7th_Hackathon_M_Team.demo.domain.group.mapper;
+package UMC_7th_Hackathon_M_Team.demo.domain.team.mapper;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.group.dto.response.TeamResponse;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.Team;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.dto.response.TeamResponse;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.Team;
 import org.springframework.stereotype.Component;
 
 @Component

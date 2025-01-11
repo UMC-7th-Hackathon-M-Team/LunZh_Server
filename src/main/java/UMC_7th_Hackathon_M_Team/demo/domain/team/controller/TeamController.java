@@ -1,7 +1,7 @@
-package UMC_7th_Hackathon_M_Team.demo.domain.group.controller;
+package UMC_7th_Hackathon_M_Team.demo.domain.team.controller;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.group.dto.response.TeamResponse;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.service.TeamService;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.dto.response.TeamResponse;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.service.TeamService;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.request.MemberUpdateRequest;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.response.LoginResponse;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.dto.response.MemberResponse;

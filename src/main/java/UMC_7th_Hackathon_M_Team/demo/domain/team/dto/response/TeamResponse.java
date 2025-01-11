@@ -1,6 +1,6 @@
-package UMC_7th_Hackathon_M_Team.demo.domain.group.dto.response;
+package UMC_7th_Hackathon_M_Team.demo.domain.team.dto.response;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.enums.Game;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.enums.Game;
 import lombok.Builder;
 import lombok.Getter;
 

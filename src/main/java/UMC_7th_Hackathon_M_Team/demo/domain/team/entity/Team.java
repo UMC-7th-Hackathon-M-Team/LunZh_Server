@@ -1,11 +1,11 @@
-package UMC_7th_Hackathon_M_Team.demo.domain.group.entity;
+package UMC_7th_Hackathon_M_Team.demo.domain.team.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import UMC_7th_Hackathon_M_Team.demo.domain.calendar.entity.Calendar;
 import UMC_7th_Hackathon_M_Team.demo.domain.gameMember.entity.GameMember;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.enums.Game;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.enums.Game;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.entity.Member;
 import UMC_7th_Hackathon_M_Team.demo.global.common.BaseEntity;
 import jakarta.persistence.CascadeType;
@@ -52,4 +52,8 @@ public class Team extends BaseEntity {
 
 	@OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
 	private List<GameMember> gameMembers = new ArrayList<>();
+
+	public void setGame(Game game) {
+		this.game = game;
+	}
 }

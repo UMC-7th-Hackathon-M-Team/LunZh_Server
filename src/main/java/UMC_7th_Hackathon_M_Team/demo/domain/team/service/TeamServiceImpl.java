@@ -1,9 +1,9 @@
-package UMC_7th_Hackathon_M_Team.demo.domain.group.service;
+package UMC_7th_Hackathon_M_Team.demo.domain.team.service;
 
-import UMC_7th_Hackathon_M_Team.demo.domain.group.dto.response.TeamResponse;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.entity.Team;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.mapper.TeamMapper;
-import UMC_7th_Hackathon_M_Team.demo.domain.group.repository.TeamRepository;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.dto.response.TeamResponse;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.entity.Team;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.mapper.TeamMapper;
+import UMC_7th_Hackathon_M_Team.demo.domain.team.repository.TeamRepository;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.entity.Member;
 import UMC_7th_Hackathon_M_Team.demo.domain.member.repository.MemberRepository;
 import UMC_7th_Hackathon_M_Team.demo.global.exeption.CustomApiException;
